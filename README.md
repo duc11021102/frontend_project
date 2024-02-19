@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-# React + TypeScript + Vite Test Branch duc-hm
+# React + TypeScript + Vite Test Branch duy-ld
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
