@@ -1,5 +1,10 @@
+import FormLogin from "../../components/Auth/FormLogin";
 const LoginViewPage = () => {
-  return <div>LoginViewPage</div>;
+  return (
+    <>
+      <FormLogin />
+    </>
+  );
 };
 
 export default LoginViewPage;
