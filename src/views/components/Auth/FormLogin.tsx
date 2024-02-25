@@ -47,7 +47,9 @@ const FormLogin = () => {
                   className={`w-full rounded-md ${errors.email ? "input-error" : ""} placeholder-gray-500`}
                 />
                 {!!errors.email && (
-                  <p className="text-error mt-1">Không được để trống</p>
+                  <p className="text-error text-red-500 mt-1">
+                    Không được để trống
+                  </p>
                 )}
               </div>
               <div>
@@ -66,7 +68,9 @@ const FormLogin = () => {
                   className={`w-full rounded-md ${errors.password ? "input-error" : ""} placeholder-gray-500`}
                 />
                 {!!errors.password && (
-                  <p className="text-error mt-1">Không được để trống</p>
+                  <p className="text-error text-red-500 mt-1">
+                    Không được để trống
+                  </p>
                 )}
               </div>
               <button
