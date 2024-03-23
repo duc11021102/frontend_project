@@ -1,14 +1,36 @@
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosArrowDown, IoIosSearch } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { BsCart3 } from "react-icons/bs";
-import { BsPerson } from "react-icons/bs";
+import { BsCart3, BsPerson } from "react-icons/bs";
 import soccer from "../../assets/soccer.png";
+import { checkAuth } from "../../../utils/checkAuth";
+import { useMutation } from "@tanstack/react-query";
+import { logoutApi } from "../../../api/logoutApi";
+import { useNavigate } from "react-router-dom";
+import { toastSuccessLogout } from "../UI/Toast";
+interface IActive {
+  isActive: boolean;
+}
+
 const NavBar = () => {
+  //STORE
   const [isOpen, setIsOpen] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const navLinkClass = ({ isActive }: any) => {
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
+  const navigate = useNavigate();
+  //QUERY
+  const { mutate } = useMutation({
+    mutationFn: logoutApi,
+    onSuccess: () => {
+      localStorage.removeItem("USER");
+      navigate("/home");
+      setIsOpenInfo(false);
+      toastSuccessLogout();
+    },
+  });
+  //CHECK AUTH
+  const { user, role, auth } = checkAuth();
+
+  const navLinkClass = ({ isActive }: IActive) => {
     return isActive
       ? "flex items-center gap-1 h-16 block py-2 px-3 text-white bg-green-500 rounded md:bg-transparent md:text-green-500 md:p-0 "
       : "flex items-center gap-1 h-16 block py-2 px-3 text-gray-900 rounded hover:bg-green-500 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 ";
@@ -114,14 +136,103 @@ const NavBar = () => {
               <BsCart3 className="text-2xl" />
             </div>
           </NavLink>
-          <NavLink
-            to="/login"
-            className="flex h-16 justify-center items-center cursor-pointer"
-          >
-            <div className="relative h-16 flex items-center">
+
+          <div className="relative h-16 flex flex-col items-center">
+            <div
+              // onClick={() => setIsOpenInfo(!isOpenInfo)}
+              onMouseEnter={() => setIsOpenInfo(true)}
+              onMouseLeave={() => setIsOpenInfo(false)}
+              className="h-full flex justify-center items-center"
+            >
               <BsPerson className="text-3xl" />
             </div>
-          </NavLink>
+
+            {isOpenInfo && (
+              <div
+                onMouseEnter={() => setIsOpenInfo(true)}
+                onMouseLeave={() => setIsOpenInfo(false)}
+                id="dropdownAvatar"
+                className="z-10 absolute mt-16 bg-white border-t border-green-500  shadow-2xl w-44 "
+              >
+                {auth && (
+                  <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <div>{user?.username}</div>
+                    <div className="font-medium truncate">{user?.email}</div>
+                  </div>
+                )}
+                {auth && (
+                  <ul
+                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownUserAvatarButton"
+                  >
+                    {role === 1 && (
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          Dashboard
+                        </a>
+                      </li>
+                    )}
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Tài khoản
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Tài sản
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Đơn hàng
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Quan tâm
+                      </a>
+                    </li>
+                  </ul>
+                )}
+                {auth && (
+                  <div className="py-2">
+                    <button
+                      onClick={() => mutate()}
+                      className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Đăng xuất
+                    </button>
+                  </div>
+                )}
+                {!auth && (
+                  <div className="py-2 w-full flex justify-center items-center">
+                    <button
+                      onClick={() => navigate("/login")}
+                      // to="/login"
+                      className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Đăng nhập
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>
