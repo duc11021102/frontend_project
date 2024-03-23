@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
 import InnerContent from "./InnerContent";
 import HomeViewPage from "../views/pages/Home/HomeViewPage";
@@ -10,16 +10,16 @@ const MainRoutes = () => (
   <Routes>
     {/** Protected Routes */}
     {/** Wrap all Route under ProtectedRoutes element */}
-    <Route path="/" element={<Outlet />}>
-      <Route path="/" element={<InnerContent />}>
-        <Route path="/" element={<Navigate replace to="home" />} />
-        <Route path="home" element={<HomeViewPage />} />
-        <Route path="collections" element={<CollectionsViewPage />} />
-        <Route path="services" element={<ServicesViewPage />} />
-        <Route path="cart" element={<ProtectedRoutes />}>
-          <Route path="/cart" element={<CartViewPage />} />
-        </Route>
+    {/* <Route path="/" element={<ProtectedRoutes />}> */}
+    <Route path="/" element={<InnerContent />}>
+      <Route path="/" element={<Navigate replace to="home" />} />
+      <Route path="home" element={<HomeViewPage />} />
+      <Route path="collections" element={<CollectionsViewPage />} />
+      <Route path="services" element={<ServicesViewPage />} />
+      <Route path="cart" element={<ProtectedRoutes />}>
+        <Route path="/cart" element={<CartViewPage />} />
       </Route>
+      {/* </Route> */}
     </Route>
     <Route path="/login" element={<LoginViewPage />} />
     {/* 404 Route */}

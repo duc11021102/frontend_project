@@ -1,48 +1,18 @@
-// import React from "react";
-
 import { Navigate, Outlet } from "react-router-dom";
-
-const useAuth = () => {
-  //get item from localstorage
-
-  // let user;
-
-  // const _user = localStorage.getItem("user")
-
-  // if (_user) {
-  // 	user = JSON.parse(_user)
-  // 	console.log("user", user)
-  // }
-  // if (user) {
-  // 	return {
-  // 		auth: true,
-  // 		role: user.role,
-  // 	}
-  // } else {
-  // 	return {
-  // 		auth: false,
-  // 		role: null,
-  // 	}
-  // }
-
-  return {
-    auth: true,
-    role: "ADMIN",
-  };
-};
-
-//protected Route state
+import { checkAuth } from "../utils/checkAuth";
+//protected Route STATE
 type ProtectedRouteType = {
   roleRequired?: "ADMIN" | "USER";
 };
-
+// CHUA DANG NHAP THI VAO CART SE CHUYEN SANG TRANG LOGIN
+// DANG NHAP ROI MA KHONG = ROLEREQUIRED THI CHUYEN SANG TRANG HOME
 const ProtectedRoutes = ({ roleRequired }: ProtectedRouteType) => {
-  const { auth, role } = useAuth();
-
+  const { auth, role } = checkAuth();
+  const roleStr = role === 1 ? "ADMIN" : role === 2 ? "USER" : "NULL";
   //if the role required is there or not
   if (roleRequired) {
     return auth ? (
-      roleRequired === role ? (
+      roleRequired === roleStr ? (
         <Outlet />
       ) : (
         <Navigate to="/" />

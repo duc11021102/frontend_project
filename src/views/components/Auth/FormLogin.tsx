@@ -1,13 +1,23 @@
 import { useForm } from "react-hook-form";
 import { IoIosArrowForward } from "react-icons/io";
-const FormLogin = () => {
+import { IFormLogin } from "../../../interface/auth";
+
+interface Props {
+  onSubmitLogin: (data: IFormLogin) => void;
+}
+
+const FormLogin = ({ onSubmitLogin }: Props) => {
+  //FORM HANDLER
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data: object) => {
-    console.log(data);
+  } = useForm<IFormLogin>();
+
+  // LOGIN FUNCTION
+  const onSubmit = (data: IFormLogin) => {
+    // console.log(data);
+    onSubmitLogin(data);
   };
   return (
     <div className="h-full bg-gray-50 font-body">
@@ -40,8 +50,7 @@ const FormLogin = () => {
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  //   name="email"
+                  id="email"
                   {...register("email", { required: true, maxLength: 20 })}
                   placeholder=""
                   className={`w-full rounded-md ${errors.email ? "input-error" : ""} placeholder-gray-500`}
@@ -61,7 +70,7 @@ const FormLogin = () => {
                 </label>
                 <input
                   type="password"
-                  id="name"
+                  id="password"
                   //   name="password"
                   {...register("password", { required: true, maxLength: 20 })}
                   placeholder=""
