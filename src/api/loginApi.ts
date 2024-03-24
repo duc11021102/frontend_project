@@ -1,6 +1,6 @@
 import { IFormLogin } from "../interface/auth";
 import axios, { AxiosError } from "axios";
-
+import { toastError } from "../views/containers/UI/Toast";
 export async function loginApi(formData: IFormLogin) {
   try {
     console.log("LOADING LOGIN::");
@@ -10,6 +10,7 @@ export async function loginApi(formData: IFormLogin) {
   } catch (error) {
     if (error instanceof AxiosError) {
       const errorMessage = error.response?.data.error.message;
+      toastError(errorMessage);
       console.log(errorMessage);
       throw new AxiosError(errorMessage);
     }

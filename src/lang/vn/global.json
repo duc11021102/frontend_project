@@ -1,0 +1,29 @@
+{
+  "lang": {
+    "vn": "Tiếng Việt",
+    "en": "Tiếng Anh"
+  },
+  "navbar": {
+    "home": "Trang chủ",
+    "collections": "Sản phẩm",
+    "services": "Dịch vụ ",
+    "cart": "Giỏ hàng",
+    "search": "Tìm kiếm sản phẩm...",
+    "versionFan": "Áo bóng đá bản Fan",
+    "versionPlayer": "Áo bóng đá bản Player",
+    "versionClassic": "Áo bóng đá bản Classic",
+    "account": "Tài khoản",
+    "asset": "Tài sản",
+    "orders": "Đơn hàng",
+    "concerns": "Quan tâm",
+    "dashboard": "Dashboard",
+    "logout": "Đăng xuất",
+    "login": "Đăng nhập"
+  },
+  "toast": {
+    "loginsuccess": "Đăng nhập thành công!",
+    "loginerror": "Đăng nhập không thành công!",
+    "logoutsuccess": "Đăng xuất thành công!",
+    "logouterror": "Đăng xuất không thành công!"
+  }
+}

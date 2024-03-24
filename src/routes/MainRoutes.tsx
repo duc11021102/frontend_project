@@ -6,6 +6,7 @@ import CollectionsViewPage from "../views/pages/Collections/CollectionsViewPage"
 import ServicesViewPage from "../views/pages/Services/ServicesViewPage";
 import CartViewPage from "../views/pages/Cart/CartViewPage";
 import LoginViewPage from "../views/pages/Auth/LoginViewPage";
+import PublicRoute from "./PublicRoute";
 const MainRoutes = () => (
   <Routes>
     {/** Protected Routes */}
@@ -21,7 +22,9 @@ const MainRoutes = () => (
       </Route>
       {/* </Route> */}
     </Route>
-    <Route path="/login" element={<LoginViewPage />} />
+    <Route path="/login" element={<PublicRoute />}>
+      <Route path="" element={<LoginViewPage />} />
+    </Route>
     {/* 404 Route */}
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>

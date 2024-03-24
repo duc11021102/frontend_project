@@ -1,0 +1,29 @@
+{
+  "lang": {
+    "vn": "Vietnamese",
+    "en": "English"
+  },
+  "navbar": {
+    "home": "Home",
+    "collections": "Collections",
+    "services": "Services",
+    "cart": "My Cart",
+    "search": "Search...",
+    "versionFan": "Fan version football shirt",
+    "versionPlayer": "Player version football shirt",
+    "versionClassic": "Classic version football shirt",
+    "account": "Account",
+    "asset": "Asset",
+    "orders": "My orders",
+    "concerns": "My concerns",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "login": "Login"
+  },
+  "toast": {
+    "loginsuccess": "Logged in successfully!",
+    "loginerror": "Login unsuccessful!",
+    "logoutsuccess": "Log out successfully!",
+    "logouterror": "Logout failed!"
+  }
+}
