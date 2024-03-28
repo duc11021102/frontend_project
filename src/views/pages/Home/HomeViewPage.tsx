@@ -1,5 +1,6 @@
 // import { useQuery } from "@tanstack/react-query";
 // import { getUsersApi } from "../../../api/getUsersApi";
+// import Carousel from "../../components/Home/Carousel";
 const HomeViewPage = () => {
   //QUERY
   // const { data } = useQuery({
@@ -12,6 +13,6 @@ const HomeViewPage = () => {
   //   console.log(data);
   // }
 
-  return <div></div>;
+  return <main className="">{/* <Carousel /> */}</main>;
 };
 export default HomeViewPage;

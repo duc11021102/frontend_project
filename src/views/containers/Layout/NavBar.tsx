@@ -63,7 +63,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 font-body fixed w-full shadow-2xl px-10 lg:px-24">
+    <nav className="bg-white border-gray-200 font-body fixed w-full shadow-2xl px-10 lg:px-24 z-10">
       <div className="flex items-center justify-between h-16">
         <a href="#" className="flex items-center">
           <img className="w-10 h-10" src={soccer}></img>

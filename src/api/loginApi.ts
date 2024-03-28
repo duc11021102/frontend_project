@@ -1,6 +1,7 @@
 import { IFormLogin } from "../interface/auth";
 import axios, { AxiosError } from "axios";
 import { toastError } from "../views/containers/UI/Toast";
+// import axios from "./config/request";
 export async function loginApi(formData: IFormLogin) {
   try {
     console.log("LOADING LOGIN::");
