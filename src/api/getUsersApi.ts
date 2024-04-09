@@ -1,5 +1,5 @@
-import axios, { AxiosError } from "axios";
-
+import { AxiosError } from "axios";
+import axios from "./config/request";
 export async function getUsersApi() {
   try {
     const { data } = await axios.get("/api/users");

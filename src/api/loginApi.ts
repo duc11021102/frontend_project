@@ -1,12 +1,18 @@
 import { IFormLogin } from "../interface/auth";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import { toastError } from "../views/containers/UI/Toast";
-// import axios from "./config/request";
+import { getAccessTokenApi } from "./getAccessToken";
+import axios from "axios";
 export async function loginApi(formData: IFormLogin) {
   try {
     console.log("LOADING LOGIN::");
     const { data } = await axios.post("/api/auth/login", formData);
     localStorage.setItem("USER", JSON.stringify(data.data));
+    const accessToken = await getAccessTokenApi();
+    if (accessToken) {
+      console.log("ACCESS TOKEN:::", accessToken);
+      localStorage.setItem("accessToken", accessToken);
+    }
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {

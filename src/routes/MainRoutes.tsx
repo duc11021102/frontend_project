@@ -6,6 +6,7 @@ import CollectionsViewPage from "../views/pages/Collections/CollectionsViewPage"
 import ServicesViewPage from "../views/pages/Services/ServicesViewPage";
 import CartViewPage from "../views/pages/Cart/CartViewPage";
 import LoginViewPage from "../views/pages/Auth/LoginViewPage";
+import ProfileViewPage from "../views/pages/Profile/ProfileViewPage";
 import PublicRoute from "./PublicRoute";
 const MainRoutes = () => (
   <Routes>
@@ -19,6 +20,9 @@ const MainRoutes = () => (
       <Route path="services" element={<ServicesViewPage />} />
       <Route path="cart" element={<ProtectedRoutes />}>
         <Route path="/cart" element={<CartViewPage />} />
+      </Route>
+      <Route path="profile" element={<ProtectedRoutes />}>
+        <Route path="/profile" element={<ProfileViewPage />} />
       </Route>
       {/* </Route> */}
     </Route>

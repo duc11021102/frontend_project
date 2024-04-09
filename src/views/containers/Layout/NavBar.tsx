@@ -30,6 +30,7 @@ const NavBar = () => {
     onSuccess: () => {
       const logoutSuccess = t("toast.logoutsuccess");
       localStorage.removeItem("USER");
+      localStorage.removeItem("accessToken");
       navigate("/home");
       setIsOpenInfo(false);
       toastSuccess(logoutSuccess);
@@ -202,12 +203,12 @@ const NavBar = () => {
                       </li>
                     )}
                     <li>
-                      <a
-                        href="#"
+                      <NavLink
+                        to="/profile"
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                       >
                         {t("navbar.account")}
-                      </a>
+                      </NavLink>
                     </li>
                     <li>
                       <a
