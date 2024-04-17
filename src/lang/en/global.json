@@ -24,6 +24,8 @@
     "loginsuccess": "Logged in successfully!",
     "loginerror": "Login unsuccessful!",
     "logoutsuccess": "Log out successfully!",
-    "logouterror": "Logout failed!"
+    "logouterror": "Logout failed!",
+    "registersuccess": "Sign up successfully!",
+    "registererror": "Sign up unsuccessful!"
   }
 }

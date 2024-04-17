@@ -31,7 +31,7 @@ const NavBar = () => {
       const logoutSuccess = t("toast.logoutsuccess");
       localStorage.removeItem("USER");
       localStorage.removeItem("accessToken");
-      navigate("/home");
+      navigate("/login");
       setIsOpenInfo(false);
       toastSuccess(logoutSuccess);
     },
@@ -194,12 +194,12 @@ const NavBar = () => {
                   >
                     {role === 1 && (
                       <li>
-                        <a
-                          href="#"
+                        <NavLink
+                          to="/dashboard"
                           className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           {t("navbar.dashboard")}
-                        </a>
+                        </NavLink>
                       </li>
                     )}
                     <li>

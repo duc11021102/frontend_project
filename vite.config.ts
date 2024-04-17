@@ -18,6 +18,15 @@ const RequestLogger: Plugin = {
           );
         });
       }
+      if (req.url && req.url.startsWith("/git")) {
+        const startTime = Date.now();
+        res.on("finish", () => {
+          const duration = Date.now() - startTime;
+          customLogger.info(
+            `[${req.method}] ${req.url} - ${res.statusCode} (${duration}ms)`,
+          );
+        });
+      }
       next();
     });
   },
@@ -31,6 +40,11 @@ export default defineConfig({
         target: process.env.VITE_API_URL,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+      "/git": {
+        target: process.env.VITE_API_GITHUB,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/git/, ""),
       },
     },
   },

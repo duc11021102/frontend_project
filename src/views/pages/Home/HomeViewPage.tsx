@@ -1,17 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
-import { getUsersApi } from "../../../api/getUsersApi";
-// import Carousel from "../../components/Home/Carousel";
+// import { useQuery } from "@tanstack/react-query";
+// import { getUsersApi } from "../../../api/getUsersApi";
+import { useTitle } from "../../../hooks/useTitle";
 const HomeViewPage = () => {
+  //STORE
+  useTitle("QuayBongDa");
   //QUERY
-  const { data } = useQuery({
-    queryFn: getUsersApi,
-    queryKey: ["users"],
-    staleTime: 5000,
-  });
+  // const { data } = useQuery({
+  //   queryFn: getUsersApi,
+  //   queryKey: ["users"],
+  //   staleTime: 5000,
+  // });
 
-  if (data) {
-    console.log(data);
-  }
+  // if (data) {
+  //   console.log(data);
+  // }
 
   return <main className="">{/* <Carousel /> */}</main>;
 };

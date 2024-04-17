@@ -5,13 +5,15 @@ import { loginApi } from "../../../api/loginApi";
 import { useNavigate } from "react-router-dom";
 import { toastSuccess } from "../../containers/UI/Toast";
 import { useTranslation } from "react-i18next";
+import { useTitle } from "../../../hooks/useTitle";
 const LoginViewPage = () => {
   //STORE
   const navigate = useNavigate();
   const { t } = useTranslation();
   const loginSuccess = t("toast.loginsuccess");
+  useTitle("Login");
   //QUERY
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: loginApi,
     onSuccess: () => {
       navigate("/home");
@@ -21,11 +23,10 @@ const LoginViewPage = () => {
 
   const onSubmitLoginHandler = (formData: IFormLogin) => {
     mutate(formData);
-    console.log(formData);
   };
   return (
     <>
-      <FormLogin onSubmitLogin={onSubmitLoginHandler} />
+      <FormLogin isPending={isPending} onSubmitLogin={onSubmitLoginHandler} />
     </>
   );
 };

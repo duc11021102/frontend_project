@@ -24,6 +24,8 @@
     "loginsuccess": "Đăng nhập thành công!",
     "loginerror": "Đăng nhập không thành công!",
     "logoutsuccess": "Đăng xuất thành công!",
-    "logouterror": "Đăng xuất không thành công!"
+    "logouterror": "Đăng xuất không thành công!",
+    "registersuccess": "Đăng ký thành công!",
+    "registererror": "Đăng ký không thành công!"
   }
 }

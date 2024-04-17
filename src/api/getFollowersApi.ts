@@ -1,13 +1,12 @@
 import { AxiosError } from "axios";
-import axios from "./config/request";
-export async function getUsersApi() {
+import axios from "axios";
+export async function getFollowersApi() {
   try {
-    const { data } = await axios.get("/api/users");
+    const { data } = await axios.get("/git/users/duc11021102/followers");
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {
       const errorMessage = error.response?.data.error.message;
-      // console.log(errorMessage);
       throw new AxiosError(errorMessage);
     }
   }
