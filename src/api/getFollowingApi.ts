@@ -1,8 +1,8 @@
 import { AxiosError } from "axios";
 import axios from "axios";
-export async function getFollowersApi() {
+export async function getFollowingApi() {
   try {
-    const { data } = await axios.get("/git/users/duc11021102/followers", {
+    const { data } = await axios.get("/git/users/duc11021102/following", {
       headers: {
         Authorization: `token ${import.meta.env.VITE_TOKEN_GITHUB}`,
       },

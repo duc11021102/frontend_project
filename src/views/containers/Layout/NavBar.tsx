@@ -1,6 +1,6 @@
 import { IoIosArrowDown, IoIosArrowUp, IoIosSearch } from "react-icons/io";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BsCart3, BsPerson } from "react-icons/bs";
 import soccer from "../../assets/soccer.png";
 import { checkAuth } from "../../../utils/checkAuth";
@@ -8,6 +8,7 @@ import { useMutation } from "@tanstack/react-query";
 import { logoutApi } from "../../../api/logoutApi";
 import { toastSuccess } from "../UI/Toast";
 import { useTranslation } from "react-i18next";
+import useLang from "../../../hooks/useLang";
 import flagvn from "../../assets/flag-vn.svg";
 import flagen from "../../assets/flag-en.svg";
 interface IActive {
@@ -20,7 +21,7 @@ const NavBar = () => {
   const [isOpenInfo, setIsOpenInfo] = useState(false);
   const [isOpenLang, setIsOpenLang] = useState(false);
   const navigate = useNavigate();
-  const [lang, setLang] = useState("vn");
+  const lang = useLang("vn");
   const { i18n } = useTranslation();
   const { t } = useTranslation();
 
@@ -48,15 +49,7 @@ const NavBar = () => {
       localStorage.setItem("language", "vn");
     }
   };
-  // GET LANG
-  useEffect(() => {
-    const currentLang = i18n.language;
-    if (currentLang === "vn") {
-      setLang("vn");
-    } else if (currentLang === "en") {
-      setLang("en");
-    }
-  }, [i18n.language]);
+
   const navLinkClass = ({ isActive }: IActive) => {
     return isActive
       ? "flex items-center gap-1 h-16 block py-2 px-3 text-green-500 bg-green-500 rounded md:bg-transparent md:p-0  "
@@ -165,11 +158,11 @@ const NavBar = () => {
             </div>
           </NavLink>
 
-          <div className="relative h-16 flex flex-col items-center">
+          <div className="relative h-16 flex flex-col items-end lg:items-center">
             <div
               onMouseEnter={() => setIsOpenInfo(true)}
               onMouseLeave={() => setIsOpenInfo(false)}
-              className="h-full flex justify-center items-center"
+              className="h-full container_flex"
             >
               <BsPerson className="text-3xl" />
             </div>
