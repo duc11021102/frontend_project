@@ -1,8 +1,8 @@
-import { AxiosError } from "axios";
-import axios from "./config/request";
-export async function getUsersApi() {
+import axios, { AxiosError } from "axios";
+
+export async function getAllItemApi() {
   try {
-    const { data } = await axios.get("/api/users");
+    const { data } = await axios.get("/api/items");
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {

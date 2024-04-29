@@ -27,5 +27,11 @@
     "logouterror": "Đăng xuất không thành công!",
     "registersuccess": "Đăng ký thành công!",
     "registererror": "Đăng ký không thành công!"
+  },
+  "home": {
+    "homeTitlePlayer": "Áo bóng đá bản Player",
+    "homeTitleFan": "Áo bóng đá bản Fan",
+    "homeTitleClassic": "Áo bóng đá bản Classic",
+    "homeButtonMore": "XEM THÊM, CÒN NHIỀU LẮM!"
   }
 }

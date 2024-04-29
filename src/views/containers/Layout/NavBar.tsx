@@ -57,13 +57,17 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 font-body fixed w-full shadow-2xl px-10 lg:px-24 z-10">
+    <nav className="bg-white border-gray-200 font-body fixed w-full shadow-2xl px-10 lg:px-20 z-10">
       <div className="flex items-center justify-between h-16">
         <a href="#" className="flex items-center">
           <img className="w-10 h-10" src={soccer}></img>
         </a>
         <div className="hidden w-full lg:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex flex-col h-16 items-center font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+          <ul
+            className="flex flex-col h-16 items-center font-medium p-4 md:p-0 mt-4 
+          border border-gray-100 rounded-lg bg-gray-50 
+          md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white"
+          >
             <li>
               <NavLink to="/home" className={navLinkClass}>
                 {t("navbar.home")}
@@ -158,7 +162,7 @@ const NavBar = () => {
             </div>
           </NavLink>
 
-          <div className="relative h-16 flex flex-col items-end lg:items-center">
+          <div className="relative h-16 lg:flex flex-col items-center">
             <div
               onMouseEnter={() => setIsOpenInfo(true)}
               onMouseLeave={() => setIsOpenInfo(false)}
@@ -267,7 +271,7 @@ const NavBar = () => {
                 onMouseEnter={() => setIsOpenLang(true)}
                 onMouseLeave={() => setIsOpenLang(false)}
                 id="dropdownAvatar"
-                className="z-10 absolute mt-16 bg-white border-t border-green-500  shadow-2xl w-44 "
+                className="z-10 absolute mt-16 bg-white w-44 shadow-2xl border-t border-green-500 "
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"

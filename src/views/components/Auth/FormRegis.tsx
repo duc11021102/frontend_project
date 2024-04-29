@@ -146,6 +146,14 @@ const FormRegis = ({ onSubmitRegis, isPending }: Props) => {
                     Mật khẩu nhập lại không hợp lệ.
                   </p>
                 )}
+                {isCapsLock && (
+                  <p className="text-error flex items-center text-sm gap-1 text-gray-900 mt-2">
+                    Đang bật Caps Lock
+                    <span>
+                      <IoIosWarning className="text-xl text-yellow-300" />
+                    </span>
+                  </p>
+                )}
               </div>
               <button
                 disabled={isPending}

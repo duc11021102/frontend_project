@@ -58,7 +58,7 @@ const ProfileViewPage = () => {
           <p className="mt-2">{userData?.bio}</p>
         </div>
       </div>
-      <div className="container_grid4 mx-5 ">
+      <div className="container_grid4 gap-5 mx-5 ">
         <div className="card container_flex gap-5">
           <RiGitRepositoryFill className="icon_profile" />
           <p className="text_section">{userData?.public_repos} Repos</p>

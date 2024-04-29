@@ -27,5 +27,11 @@
     "logouterror": "Logout failed!",
     "registersuccess": "Sign up successfully!",
     "registererror": "Sign up unsuccessful!"
+  },
+  "home": {
+    "homeTitlePlayer": "Player version football shirt",
+    "homeTitleFan": "Fan version football shirt",
+    "homeTitleClassic": "Classic version football shirt",
+    "homeButtonMore": "SEE MORE!"
   }
 }

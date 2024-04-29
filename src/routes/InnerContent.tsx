@@ -10,13 +10,15 @@ const InnerContent = () => {
     const cookieExists = document.cookie.includes("XAVIA-AUTH");
     if (!cookieExists) {
       localStorage.removeItem("USER");
-      navigate("/home");
+      navigate("/login");
     }
   }, [navigate]);
   return (
     <div className="flex flex-col">
       <NavBar />
-      <Outlet />
+      <div className="mt-16">
+        <Outlet />
+      </div>
       <Message />
       <ScrollToTop />
     </div>
