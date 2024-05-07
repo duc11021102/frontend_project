@@ -26,7 +26,7 @@ type Props = {
 const ItemList = ({ title, data }: Props) => {
   const items = data?.slice(0, 12);
   return (
-    <main className="font-body mx-3 sm:mx-10 md:mx-20 lg:mx-32 xl:mx-40 mt-16 mb-8">
+    <main className="font-body mt-16 mb-8 section_margin">
       <h1 className="text_title mb-4">{title}</h1>
       <Suspense
         fallback={
@@ -35,7 +35,7 @@ const ItemList = ({ title, data }: Props) => {
           </div>
         }
       >
-        <section className="container_grid4 gap-0 sm:gap-5">
+        <section className="container_grid4 gap-3 sm:gap-5">
           {items?.map((item) => (
             <Item
               itemImg={item.itemImage}

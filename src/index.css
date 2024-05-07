@@ -33,6 +33,9 @@
 .ul_list {
   @apply flex flex-col gap-2 overflow-y-scroll;
 }
+.section_margin {
+  @apply mx-0 sm:mx-10 md:mx-14 lg:mx-20;
+}
 
 /* width */
 ::-webkit-scrollbar {
@@ -52,4 +55,21 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: calc(var(--swiper-navigation-size) / 1);
+  height: var(--swiper-navigation-size);
+  padding: 10px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  /* color: rgb(14 159 110); */
+  color: black;
+}
+.swiper-pagination-bullet-active {
+  background-color: #000 !important;
 }
