@@ -1,7 +1,7 @@
-import img1 from "../../assets/slide_1_img.webp";
-import img2 from "../../assets/slide_2_img.webp";
-import img3 from "../../assets/slide_3_img.webp";
-import img4 from "../../assets/slide_4_img.webp";
+import slide1 from "../../../assets/img/slide_1_img.webp";
+import slide2 from "../../../assets/img/slide_2_img.webp";
+import slide3 from "../../../assets/img/slide_3_img.webp";
+import slide4 from "../../../assets/img/slide_4_img.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -25,6 +25,7 @@ const Carousel = () => {
           spaceBetween={50}
           slidesPerView={1}
           navigation={{
+            enabled: false,
             prevEl: ".swiper-button-prev",
             nextEl: ".swiper-button-next",
           }}
@@ -32,21 +33,19 @@ const Carousel = () => {
             clickable: true,
             bulletActiveClass: "swiper-pagination-bullet-active",
           }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
           className="swiper-container"
         >
           <SwiperSlide className="swiper-slide">
-            <img src={img1} loading="lazy" alt=""></img>
+            <img src={slide1} loading="lazy" alt=""></img>
           </SwiperSlide>
           <SwiperSlide className="swiper-slide">
-            <img src={img2} loading="lazy" alt=""></img>
+            <img src={slide2} loading="lazy" alt=""></img>
           </SwiperSlide>
           <SwiperSlide className="swiper-slide">
-            <img src={img3} loading="lazy" alt=""></img>
+            <img src={slide3} loading="lazy" alt=""></img>
           </SwiperSlide>
           <SwiperSlide className="swiper-slide">
-            <img src={img4} loading="lazy" alt=""></img>
+            <img src={slide4} loading="lazy" alt=""></img>
           </SwiperSlide>
           <div className="swiper-button-next"></div>
           <div className="swiper-button-prev"></div>

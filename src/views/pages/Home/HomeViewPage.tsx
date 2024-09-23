@@ -7,7 +7,7 @@ import { getItemsByCategoryApi } from "../../../api/getItemsByCategoryApi";
 import { Suspense, lazy } from "react";
 // import Followus from "../../containers/Layout/Followus";
 import { useTranslation } from "react-i18next";
-import useViewport from "../../../hooks/useViewport";
+// import useViewport from "../../../hooks/useViewport";
 import { NavLink } from "react-router-dom";
 const ItemList = lazy(() => import("../../components/Home/ItemList"));
 const HomeViewPage = () => {
@@ -34,8 +34,8 @@ const HomeViewPage = () => {
   //STORE
   useTitle("QuayBongDa");
   const { t } = useTranslation();
-  const viewPort = useViewport();
-  console.log(viewPort);
+  // const viewPort = useViewport();
+  // console.log(viewPort);
   return (
     <main className="font-body">
       {/* <Banner /> */}

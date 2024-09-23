@@ -1,5 +1,23 @@
+import { useState, useEffect } from "react";
 import { BsArrowUpSquare } from "react-icons/bs";
 const ScrollToTop = () => {
+  const [isVisible, setIsvisible] = useState(false);
+
+  useEffect(() => {
+    // Button is displayed after scrolling for 500 pixels
+    const toggleVisibility = () => {
+      if (window.scrollY > 500) {
+        setIsvisible(true);
+      } else {
+        setIsvisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
   const handlerToTop = () => {
     window.scrollTo({
       top: 0,
@@ -7,15 +25,15 @@ const ScrollToTop = () => {
       behavior: "smooth",
     });
   };
-  console.log(window.scrollY);
+
   return (
     <>
-      {/* {window.scrollY > 20 && ( */}
-      <BsArrowUpSquare
-        onClick={handlerToTop}
-        className="cursor-pointer text-3xl fixed right-5 bottom-24 text-green-500"
-      />
-      {/* )} */}
+      {isVisible && (
+        <BsArrowUpSquare
+          onClick={handlerToTop}
+          className="cursor-pointer text-3xl fixed right-5 bottom-24 text-black"
+        />
+      )}
     </>
   );
 };
